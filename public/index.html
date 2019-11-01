@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vue REST</title>
+  
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+</head>
+ <header>
+    <h1>LAB 4</h1>
+  </header>
+<body>
+  
+  <div id="app">
+    
+    <h1>Select a City</h1>
+    <form v-on:keyup.prevent="fetchREST">
+      <input type="text" v-model="prefix">
+    </form>
+    <div v-if="values">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">City Results</h5>
+          <p v-for="item in cities" class="card-text">{{item.name}}</p>
+      </div>
+    </div>
+</div>
+<div v-else></div>
+
+    <h1>Owl Interface</h1>
+    <form v-on:submit.prevent="owlREST">
+      <input type="text" v-model="owlform">
+    </form>
+   
+    <div v-if="owlValues">
+        <div v-for="owl in owls" class="card-text">
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{owlTitle}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Type: {{owl.type}}</h6>
+              <p class="card-text">Definition: {{owl.defenition}}</p>
+              <p class="card-text">Example: {{owl.example}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div v-else></div>
+      
+    
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="javascripts/script.js"></script>
+</body>
+
+</html>
+
+
+
+  
